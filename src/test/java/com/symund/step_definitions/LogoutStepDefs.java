@@ -16,10 +16,10 @@ public class LogoutStepDefs {
     LoginPage loginPage = new LoginPage();
     LogoutPage logoutPage = new LogoutPage();
 
-    @Given("the user logged in with valid credentials")
-    public void the_user_logged_in_with_valid_credentials() {
-        loginPage.login(ConfigurationReader.get("username"), ConfigurationReader.get("password"));
-    }
+//    @Given("the user logged in with valid credentials")
+//    public void the_user_logged_in_with_valid_credentials() {
+//        loginPage.login(ConfigurationReader.get("username"), ConfigurationReader.get("password"));
+//    }
 
     @And("the user clicks on the avatar icon")
     public void the_user_clicks_on_the_avatar_icon() {
