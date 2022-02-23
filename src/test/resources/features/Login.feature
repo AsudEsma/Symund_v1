@@ -1,5 +1,6 @@
 @SYMU-1083
 Feature: the user should be able to login with valid credentials only
+
   @SYMU-1073
   Scenario: the user should be able to login with valid credentials by clicking on the Login Button
     Given the user logged in with valid credentials
@@ -11,14 +12,24 @@ Feature: the user should be able to login with valid credentials only
     Then the user lands on the homepage
 
   @SYMU-1075
-  Scenario: the user should not be able to login with an invalid username and a valid password
-    Given the user puts an invalid "username" and a valid password
+  Scenario Outline: the user should not be able to login with an invalid username and a valid password <username>
+    Given the user puts an invalid "<username>" and a valid password
     Then the user gets the notice message wrong id or pw
+    Examples:
+      | username    |
+      | employee81  |
+      | asdf        |
+      | symund      |
 
   @SYMU-1076
-  Scenario: the user should not be able to login with a valid username and an invalid password
-    Given the user puts a valid username and an invalid "password"
+  Scenario Outline: the user should not be able to login with a valid username and an invalid password <password>
+    Given the user puts a valid username and an invalid "<password>"
     Then the user gets the notice message wrong id or pw
+    Examples:
+      | password    |
+      | employee123 |
+      | asdf        |
+      | symund      |
 
   @SYMU-1077
   Scenario: the user should not be able to login with a blank username and a valid password
@@ -30,14 +41,14 @@ Feature: the user should be able to login with valid credentials only
     Given the user puts a valid username and a blank password
     Then the user gets the notice message blank
 
-  @SYMU-1079
+  @SYMU-1079 @asd
   Scenario: the user can see the password in a form of dots by default
-    Given the user logged in with valid credentials
+    Given the user enters valid credentials
     Then the user sees the password in a form of dots by default
 
-  @SYMU-1080
+  @SYMU-1080 @wrt
   Scenario: the user can see the password explicitly if needed
-    Given the user logged in with valid credentials
+    Given the user enters valid credentials
     And the user clicks on eye button
     Then the user sees the password explicitly
 

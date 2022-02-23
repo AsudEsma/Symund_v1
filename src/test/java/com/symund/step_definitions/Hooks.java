@@ -15,7 +15,6 @@ public class Hooks {
     public void setUp(){
         String url = ConfigurationReader.get("url");
         Driver.get().get(url);
-        Driver.get().manage().window().maximize();
         Driver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
@@ -25,6 +24,7 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png","screenshot");
         }
+
         Driver.closeDriver();
     }
 }
