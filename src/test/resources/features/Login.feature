@@ -41,12 +41,12 @@ Feature: the user should be able to login with valid credentials only
     Given the user puts a valid username and a blank password
     Then the user gets the notice message blank
 
-  @SYMU-1079 @asd
+  @SYMU-1079
   Scenario: the user can see the password in a form of dots by default
     Given the user enters valid credentials
     Then the user sees the password in a form of dots by default
 
-  @SYMU-1080 @wrt
+  @SYMU-1080
   Scenario: the user can see the password explicitly if needed
     Given the user enters valid credentials
     And the user clicks on eye button
